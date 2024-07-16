@@ -18,12 +18,7 @@ export function Character({animation, ...props}) {
         <group ref={group} {...props} dispose={null}>
             <group name="Scene">
                 <group name="fall_guys">
-                    <skinnedMesh
-                        name="eye"
-                        geometry={nodes.eye.geometry}
-                        material={materials['Material.001']}
-                        skeleton={nodes.eye.skeleton}
-                    />
+
                     <skinnedMesh
                         name="hand-"
                         geometry={nodes['hand-'].geometry}
