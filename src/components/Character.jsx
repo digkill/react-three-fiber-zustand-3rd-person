@@ -8,10 +8,12 @@ import {useGLTF, useAnimations} from '@react-three/drei'
 export function Character({animation, ...props}) {
     const group = useRef()
     const {nodes, materials, animations} = useGLTF('/models/cc.glb')
-    const {actions} = useAnimations(animations, group);
+    const {actions} = useAnimations(animations, group)
     useEffect(() => {
-        actions[animation]?.reset().fadeIn(0.24).play();
-        return () => actions?.[animation]?.fadeOut(0.24);
+
+
+        actions[animation]?.reset().fadeIn(0.24).play()
+        return () => actions?.[animation]?.fadeOut(0.24)
     }, [animation]);
 
     return (

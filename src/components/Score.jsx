@@ -4,6 +4,7 @@ export const Score = () => {
   const coins = useGame((state) => state.score)
 
     return <div className="points">
-        <h1>Coins {coins}</h1>
+        <img width='100px' src='/images/pudge_portainer.jpg' alt='pudge photo' />
+        <h1>Meats {coins}</h1>
     </div>
 }

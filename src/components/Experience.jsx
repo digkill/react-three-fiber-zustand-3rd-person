@@ -15,6 +15,10 @@ import useGame from "../stores/useGame.js";
 import {CoinController} from "./CoinController.jsx";
 
 const maps = {
+    dark_souls_map: {
+        scale: 1,
+        position: [0, 0, 0],
+    },
     castle_on_hills: {
         scale: 3,
         position: [-6, -7, 0],
@@ -41,7 +45,7 @@ export const Experience = () => {
     const shadowCameraRef = useRef();
     const {map} = useControls("Map", {
         map: {
-            value: "castle_on_hills",
+            value: "de_dust_2_with_real_light",
             options: Object.keys(maps),
         },
     });
@@ -60,6 +64,35 @@ export const Experience = () => {
             id: 3,
             position: [1, 2, 0]
         },
+        {
+            id: 4,
+            position: [2, 2, 0]
+        },
+        {
+            id: 5,
+            position: [1, 1, 1]
+        },
+        {
+            id: 6,
+            position: [1, 3, 1]
+        },
+        {
+            id: 7,
+            position: [1, 3, 1]
+        },
+        {
+            id: 8,
+            position: [4, 3, 2]
+        },
+        {
+            id: 9,
+            position: [5, 7, 2]
+        },
+        {
+            id: 10,
+            position: [3, 3, 2]
+        },
+
     ]);
 
     const [isScored, setIsScored] = useState(false)
@@ -68,10 +101,10 @@ export const Experience = () => {
 
     const onTouch = (coinId, e) => {
 
-      if (e.collider._parent.userData.type === 'player') {
-          increaseScore()
-          setCoins((coins) => coins.filter(coin => coin.id !== coinId))
-      }
+        if (e.collider._parent.userData.type === 'player') {
+            increaseScore()
+            setCoins((coins) => coins.filter(coin => coin.id !== coinId))
+        }
 
     }
 
@@ -96,6 +129,7 @@ export const Experience = () => {
                     attach={"shadow-camera"}
                 />
             </directionalLight>
+            {/*     <Physics key={map} debug> */}
             <Physics key={map}>
                 <Map
                     scale={maps[map].scale}
@@ -108,7 +142,7 @@ export const Experience = () => {
                             key={coin.id}
                             position={coin.position}
                             coinId={coin.id}
-                            onTouch={ onTouch}
+                            onTouch={onTouch}
                         />
                     ))
                 }

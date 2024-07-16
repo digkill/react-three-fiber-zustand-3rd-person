@@ -1,4 +1,3 @@
-import {Character} from "./Character.jsx"
 import {CapsuleCollider, RigidBody} from "@react-three/rapier"
 import {useEffect, useRef, useState} from "react"
 import {MathUtils, Vector3} from "three"
@@ -6,6 +5,7 @@ import {useFrame} from "@react-three/fiber"
 import {useControls} from "leva"
 import {useKeyboardControls} from "@react-three/drei"
 import {degToRad} from "three/src/math/MathUtils.js"
+import {Pudge} from "./Pudge.jsx";
 
 
 const normalizeAngle = (angle) => {
@@ -96,7 +96,7 @@ export const CharacterController = () => {
 
             if (get().jump) {
                 console.log('Jump!')
-                setAnimation("run")
+                setAnimation("attack")
             }
 
             let speed = get().run ? RUN_SPEED : get().jump ? JUMP_SPEED : WALK_SPEED
@@ -133,9 +133,9 @@ export const CharacterController = () => {
                     Math.cos(rotationTarget.current + characterRotationTarget.current) *
                     speed;
                 if (speed === RUN_SPEED) {
-                    setAnimation("run")
+                    setAnimation("rot")
                 } else {
-                    setAnimation("walk")
+                    setAnimation("run")
                 }
             } else {
                 setAnimation("idle")
@@ -176,12 +176,12 @@ export const CharacterController = () => {
         }}>
             <group ref={container}>
                 <group ref={cameraTarget} position-z={1.5}/>
-                <group ref={cameraPosition} position-y={2} position-z={-4}/>
+                <group ref={cameraPosition} position-y={4} position-z={-4}/>
                 <group ref={character}>
-                    <Character scale={0.18} position-y={-0.25} animation={animation}/>
+                    <Pudge scale={0.10} position-y={0} animation={animation}/>
                 </group>
             </group>
-            <CapsuleCollider args={[0.08, 0.15]}/>
+            <CapsuleCollider args={[0, 0.2]}  />
         </RigidBody>
     )
 }

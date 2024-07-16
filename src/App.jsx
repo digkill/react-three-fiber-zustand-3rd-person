@@ -15,7 +15,7 @@ const keyboardMap = [
 
 function App() {
 
-    const DEBUG = false;
+    const DEBUG = true;
     return (
         <>
             <Leva hidden={!DEBUG}/>
@@ -23,7 +23,7 @@ function App() {
             <KeyboardControls map={keyboardMap}>
                 <Canvas
                     shadows
-                    camera={{position: [3, 3, 3], near: 0.2, fov: 40}}
+                    camera={{position: [3, 3, 3], near: 0.4, fov: 40}}
                     style={{
                         touchAction: 'none'
                     }}

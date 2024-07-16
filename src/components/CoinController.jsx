@@ -3,6 +3,7 @@ import {Coin} from "./Coin.jsx";
 import {useFrame} from "@react-three/fiber";
 import {useRef, useState} from "react";
 import useGame from "../stores/useGame.js";
+import {Meat} from "./Meat.jsx";
 
 export const CoinController = ({coinId, coins, onTouch, position, ...props}) => {
     const coin = useRef()
@@ -40,6 +41,6 @@ export const CoinController = ({coinId, coins, onTouch, position, ...props}) => 
             balance: 10,
         }}
     >
-        <Coin scale={0.08}/>
+        <Meat scale={0.08}/>
     </RigidBody>)
 }
