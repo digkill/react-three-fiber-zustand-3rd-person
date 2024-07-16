@@ -1,5 +1,5 @@
-# React three fiber starter pack
-Boilerplate to build R3F projects
+# React three fiber zustand 3rd person game
+Game yellow droid
 
 ```
 yarn
